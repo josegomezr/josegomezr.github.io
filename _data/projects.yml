@@ -1,0 +1,34 @@
+# Projects
+# uncomment the urls if you wish to display them, and add your own URL
+
+- project: Circuit Tracer
+  role: Developer
+  duration: 2018
+  # url: "#"
+  description: >
+    A small hobby Gerber files (RS-274X Proteus Variant) tracer using <a href="http://paperjs.org/">Paper.js</a>
+
+- project: QR Code Generator
+  role: Developer
+  duration: 2018
+  # url: "#"
+  description: >
+    A small QR Code generator for file archives classification at Servicios VECA C.A.
+
+- project: RIF (TIN) Checker
+  role: Developer
+  duration: 2016
+  # url: "#"
+  description: >
+    A shortcut for checking Venezuelan Fiscal identification numbers with SENIAT (Tax administration) API.
+
+- project: Responsive Design Tester
+  role: Developer
+  description: >
+    A merely collection of iframes, way back in time where there was no Inspector and Responsive design was booming.
+
+- project: Telegram Bots
+  role: Developer
+  description: >
+    A collection of bots for helping me in my duties, from letting me know when the power & internet went back, 
+    to checking Crypto market tickers and notifying changes in price.

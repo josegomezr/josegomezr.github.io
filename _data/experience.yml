@@ -1,0 +1,76 @@
+# Jobs
+# VP of Global Communications
+
+- company: <a href="http://edocsperu.com/" target="_blank">Edocs PERU</a>
+  position: Freelance Programmer
+  duration: Mar, 2010 &mdash; Present
+  summary: |
+    <ul>
+      <li>Wordpress theme development for anime/manga site 
+        (now dead): mangaruto.com
+        <ul>
+          <li>Optimizations (Cache & Thumbnail processing).</li>
+          <li>SEO</li>
+        </ul>
+      </li>
+      <li>Migration from Joomla 1.0 to Wordpress for
+        <a href="https://www.fertur-travel.com/" target="_blank">Fertur Travel Agency</a> using jQuery & Boostrap 3
+        <ul>
+          <li>Complete migration keeping all the previous (and worth noticing, completely irrational) links.</li>
+          <li>Multilingual support (English & Spanish).</li>
+          <li>Integration with their own CRM for enquiries.</li>
+        </ul>
+      </li>
+      <li>NinjaForms custom REST backend plugin for <a href="https://www.fertur-travel.com/" target="_blank">Fertur Travel Agency</a></li>
+      <li><a href="http://aceroimpor.com/">Aceroimpor</a> front page using jQuery & Boostrap 4.</li>
+      <li><a href="http://www.cinestar.com.pe/">Cinestar</a> front page using jQuery & Boostrap 4.</li>
+      <li><a href="https://www.hermes.com.pe/">Hermes</a> front page using jQuery & Boostrap 4.</li>
+      <li><a href="https://www.diplasac.com.pe/">Diplasac</a> front page using jQuery & Boostrap 4.</li>
+      <li>Peruvian Government frontend app for Invoicing and tax declaration using jQuery & Boostrap 3</li>
+      <li>Peruvian Government intranet service for HR hiring.</li>
+      <li>Teacher rating web & mobile app <a href="http://tucalificas.app/">TuCalificas.app</a> using ReactNative, Bootstrap 4 & Laravel.</li>
+      <li>Invoicing & POS system for <a href="http://www.laonce.com.pe/">LAONCE</a>.</li>
+    </ul>
+
+- company: Servicios VECA C.A.
+  position: Lead Programmer
+  duration: Aug, 2014 &mdash; Present
+  summary: |
+    Developing software solutions for diverse fields, including (but not limited to):
+    <ul>
+      <li>Hardware development (using Arduino, Raspberry &amp; PIC)</li>
+      <li>IoT (using Arduino &amp; Raspberry)</li>
+      <li>HR & Payroll processing</li>
+      <li>Mathematical models (Linearization of analog readings)</li>
+      <li>Dynamic Document storage system & indexer using Django & Django Rest Framework</li>
+    </ul>
+
+- company: <a href="http://saecosoft.com/">SAECOSOFT</a>
+  position: Freelance Programmer & Consultant
+  duration: Jun, 2016
+  summary: |
+    <ul>
+      <li>Service's Architecture design.</li>
+      <li>Development REST API to control Mikrotik Devices using NodeJS</li>
+      <li>Integration of <a href="https://www.alegra.com">Alegra</a> 
+        Accounting API to internal CRM</li>
+    </ul>
+
+- company: CANTV
+  position: Intern
+  duration: Jul, 2017 &mdash; Sep, 2017
+  summary: |
+    My internship was mainly oriented towards tracing the optic fiber distribution 
+    across the city. Notifying for damaged equipment and operational tasks inside the company. 
+
+
+- company: CESTICOM C.A.
+  position: Freelance Programmer
+  duration: June, 2017 &mdash; Jan, 2018
+  summary: |
+    <ul>
+      <li>Webapp for fraud recognition using Layered Voice Analysis software provided by 
+    <a href="http://nemesysco.com/" taget="_blank">nemesysco.com</a>, using </li>
+      <li>Loyalty customer point system (similar to Visa's Miles) using IBM Hyperledger Blockchain Framework</li>
+    </ul>
+
