@@ -1,5 +1,17 @@
-# links
-- url: "#"
-  description: Springfield Jazz Enthusiasts
-- url: "#"
-  description: Springfield Young Professionals
+- url: "https://github.com/PACCommunity/bitcore-lib-pac/pull/1"
+  description: PACCommunity/bitcore-lib-pac - X11Hash fix for $PAC explorer.
+
+- url: "https://github.com/mogui/pyorient/pull/81"
+  description: mogui/pyorient - Fixing "PyOrient fails when selecting a Node that has no properties"
+
+- url: "https://github.com/abr4xas/php-instapago/pull/19"
+  description: abr4xas/php-instapago - Major API rewrite 
+
+- url: "https://github.com/abr4xas/php-instapago/pull/20"
+  description: abr4xas/php-instapago - Documentation update 
+
+- url: "https://github.com/josegomezr/ninja-form-rest"
+  description: josegomezr/ninja-form-rest - A NinjaForms backend for sending data to rest endpoints.
+
+- url: "https://github.com/josegomezr/Backbone.ramstorage"
+  description: josegomezr/Backbone.ramstorage - In-memory storage for backbone.
