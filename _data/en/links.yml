@@ -1,17 +1,23 @@
 - url: "https://github.com/PACCommunity/bitcore-lib-pac/pull/1"
-  description: PACCommunity/bitcore-lib-pac - X11Hash fix for $PAC explorer.
+  anchor: PACCommunity/bitcore-lib-pac
+  description: X11Hash fix for $PAC explorer.
 
 - url: "https://github.com/mogui/pyorient/pull/81"
-  description: mogui/pyorient - Fixing "PyOrient fails when selecting a Node that has no properties"
+  anchor: mogui/pyorient
+  description: Fixing "PyOrient fails when selecting a Node that has no properties"
 
 - url: "https://github.com/abr4xas/php-instapago/pull/19"
-  description: abr4xas/php-instapago - Major API rewrite 
+  anchor: abr4xas/php-instapago
+  description: Major API rewrite 
 
 - url: "https://github.com/abr4xas/php-instapago/pull/20"
-  description: abr4xas/php-instapago - Documentation update 
+  anchor: abr4xas/php-instapago
+  description: Documentation update 
 
 - url: "https://github.com/josegomezr/ninja-form-rest"
-  description: josegomezr/ninja-form-rest - A NinjaForms backend for sending data to rest endpoints.
+  anchor: josegomezr/ninja-form-rest
+  description: A NinjaForms backend for sending data to rest endpoints.
 
 - url: "https://github.com/josegomezr/Backbone.ramstorage"
-  description: josegomezr/Backbone.ramstorage - In-memory storage for backbone.
+  anchor: josegomezr/Backbone.ramstorage
+  description: In-memory storage for backbone.
