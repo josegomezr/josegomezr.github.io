@@ -1,0 +1,38 @@
+# Projects
+# uncomment the urls if you wish to display them, and add your own URL
+
+- project: Circuit Tracer
+  role: Desarrollador
+  duration: 2018
+  # url: "#"
+  description: >
+    Un tracer sencillo de archivos Gerber (la variante de proteus del estandar 
+    RS-274X) usando [Paper.js](http://paperjs.org/)
+
+- project: Generador de Códigos QR
+  role: Desarrollador
+  duration: 2018
+  # url: "#"
+  description: >
+    Un pequeño generador de códigos QR para clasificación de documentos en Servicios VECA C.A.
+
+- project: Consulta de RIF (TIN)
+  role: Desarrollador
+  duration: 2016
+  # url: "#"
+  description: >
+    Un atajo para consultar los Números de identificación fiscal con el API de SENIAT 
+    (Administración Tributaria de Venezuela).
+
+- project: Probador Responsive
+  role: Desarrollador
+  description: >
+    Una vulgar colección de iframes, mucho tiempo atrás cuando el diseño Responsive
+    estaba surgiendo y no habia probadores.
+
+- project: Telegram Bots
+  role: Desarrollador
+  description: >
+    Una colección de bots ayudantes para las tareas diarias, desde avisarme 
+    cuando regresaba la luz y el internet, hasta notificaciones en precios del
+    mercado de criptomonedas.

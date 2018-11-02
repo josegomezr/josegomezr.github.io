@@ -1,0 +1,68 @@
+# Jobs
+# VP of Global Communications
+
+- company: "[Edocs PERU](http://edocsperu.com/)"
+  position: Programador Freelance
+  duration: Mar, 2010 &mdash; Presente
+  summary: |
+    * Desarrollo de tema para wordpress para el sitio de manga/anime (ahora muerto)
+    mangaruto.com
+      + Optimizaciones (Cache y procesamiento de miniaturas).
+      + SEO
+    * Migración de Joomla 1.0 a Wordpress para 
+    [Fertur Travel Agency](https://www.fertur-travel.com/) usando 
+    jQuery y Boostrap 3
+      + Migracion completa manteniendo todos los viejos (y cabe acotar, 
+      completamente irracionales) enlaces permanentes.
+      + Soporte multilenguaje (Inglés & Español).
+      + Integración con su CRM para reservas.
+    * Plugin para Backend REST personalizados en NinjaForms para [Fertur Travel Agency](https://www.fertur-travel.com/)
+    * [http://aceroimpor.com/](Aceroimpor) usando jQuery y Boostrap 3.
+    * [https://www.diplasac.com.pe/](Diplasac) usando jQuery y Boostrap 3.
+    * [http://www.cinestar.com.pe/](Cinestar) usando jQuery y Boostrap 4.
+    * [https://www.hermes.com.pe/](Hermes) usando jQuery y Boostrap 4.
+    * Aplicación FrontEnd de Facturación y declaración de impuestos 
+    para el Gobierno Peruano usando jQuery y Boostrap 3
+    * Servicio Contrataciones y Recursos Humanos en Intranet para el Gobierno Peruano.
+    * Aplicación web y móvil para Calificación de profesores 
+    [http://tucalificas.app/](TuCalificas.app) usando ReactNative, Bootstrap 4 y Laravel.
+    * Sistema de facturación y punto-de-venta para [http://www.laonce.com.pe/](LAONCE).
+
+- company: Servicios VECA C.A.
+  position: Lead Programmer
+  duration: Aug, 2014 &mdash; Presente
+  summary: |
+    Desarrollo de soluciones de software en diversos campos incluyendo (pero no
+    limitado a):
+    * Desarrollo de hardware (usando Arduino, Raspberry y PIC).
+    * IoT (usando Arduino y Raspberry).
+    * RRHH y Nóminas.
+    * Modelos matemáticos (Linearización de comportamiento de sensores).
+    * Almacenamiento dinámico de documentos e indexador en Django.
+
+- company: "[SAECOSOFT](http://saecosoft.com/)"
+  position: Programador Freelance y Consultor
+  duration: Jun, 2016
+  summary: |
+    * Service's Architecture design.
+    * Development REST API to control Mikrotik Devices usando NodeJS.
+    * Integration of [Alegra](https://www.alegra.com) Accounting API to 
+    internal CRM.
+
+- company: CANTV
+  position: Pasante
+  duration: Jul, 2017 &mdash; Sep, 2017
+  summary: |
+    El desarrollo de mi pasantía fué orientado principalmente a la documentación
+    de la distribución de fibra óptica de la ciudad. Notificando las averías de
+    los equipos y apoyo a las operaciones dentro de la compañía.
+
+- company: CESTICOM C.A.
+  position: Programador Freelance
+  duration: June, 2017 &mdash; Jan, 2018
+  summary: |
+    * Aplicación Web para el reconocimiento de fraude implementando el 
+    analizador de [nemesysco.com](http://nemesysco.com/) _Layered Voice 
+    Analysis_ (LVA) usando Django, Django Rest Framework y Twilio
+    * Sistema de puntos de lealtad (similar a las _Millas_ de Visa) usando IBM Hyperledger.
+

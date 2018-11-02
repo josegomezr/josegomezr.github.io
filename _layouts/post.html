@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  
+  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}">
+    <div class="wrapper">
+
+      <header class="page-header">
+
+      {% if site.resume_avatar == 'true' %}
+      <img src="/images/avatar.jpg" alt="my photo" class="avatar no-print" itemprop="image">
+      {% endif %}
+
+      <h1 class="header-name" itemprop="name">{{ site.resume_name }}</h1>
+
+      {% if site.display_header_contact_info == 'true' %}
+      <div class="header-contact-info">
+        {{ site.resume_header_contact_info | markdownify }}
+      </div>
+      {% endif %}
+      
+      {% include icon-links.html %}
+    </header>
+
+      <div class="post">
+        {{ content }}
+      </div>
+    </div>
+  </body>
+
+</html>

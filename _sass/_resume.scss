@@ -1,6 +1,40 @@
 // Resume styles
 // ---------------------------------------/
 
+.text-decoration-none{
+  text-decoration: none;
+}
+
+
+#top-nav{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.nav-item + .nav-item{
+  margin-left: .5em;
+}
+
+.post img{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.post table td{
+  padding: .25em;
+}
+
+.post table tr:nth-child(2n){
+  background: rgba(100,100,100, 0.05);
+}
+
+.post table tr:hover{
+  background: rgba(100,100,100, 0.15);
+}
+
 // util
 
 .section-header {
@@ -43,8 +77,13 @@
     @include sans;
     text-align: center;
   }
+
   .header-contact-info p a {
     color: inherit;
+  }
+
+  .header-contact-info img {
+    width: 20px;
   }
 
   .title-bar {
