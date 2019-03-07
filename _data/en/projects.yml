@@ -30,5 +30,5 @@
 - project: Telegram Bots
   role: Developer
   description: >
-    A collection of bots for helping me in my duties, from letting me know when the power & internet went back, 
+    A collection of bots for helping me in my duties, from letting me know when the power & internet come back, 
     to checking Crypto market tickers and notifying changes in price.
