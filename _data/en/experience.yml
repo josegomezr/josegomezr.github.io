@@ -1,9 +1,16 @@
 # Jobs
-# VP of Global Communications
+
+- company: <a href="https://suse.com/" target="_blank">SUSE LLC</a>
+  position: FullStack Web Developer
+  duration: June, 2019 &mdash; Present
+  summary: |
+    <ul>
+      <li>Maintain <a href="https://scc.suse.com/">SUSE Customer Center</a></li>
+    </ul>
 
 - company: <a href="http://edocsperu.com/" target="_blank">Edocs PERU</a>
   position: Freelance Programmer
-  duration: Mar, 2010 &mdash; Present
+  duration: Mar, 2010 &mdash; May, 2019
   summary: |
     <ul>
       <li>Wordpress theme development for anime/manga site 
@@ -34,7 +41,7 @@
 
 - company: Servicios VECA C.A.
   position: Lead Programmer
-  duration: Aug, 2014 &mdash; Present
+  duration: Aug, 2014 &mdash; May, 2019
   summary: |
     Developing software solutions for diverse fields, including (but not limited to):
     <ul>

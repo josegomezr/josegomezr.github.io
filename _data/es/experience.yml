@@ -1,9 +1,17 @@
 # Jobs
 # VP of Global Communications
 
+- company: <a href="https://suse.com/" target="_blank">SUSE LLC</a>
+  position: Desarrollador Web FullStack
+  duration: June, 2019 &mdash; Present
+  summary: |
+    <ul>
+      <li>Mantener <a href="https://scc.suse.com/">SUSE Customer Center</a></li>
+    </ul>
+
 - company: "[Edocs PERU](http://edocsperu.com/)"
   position: Programador Freelance
-  duration: Mar, 2010 &mdash; Presente
+  duration: Mar, 2010 &mdash; May, 2019
   summary: |
     * Desarrollo de tema para wordpress para el sitio de manga/anime (ahora muerto)
     mangaruto.com
@@ -30,7 +38,7 @@
 
 - company: Servicios VECA C.A.
   position: Lead Programmer
-  duration: Aug, 2014 &mdash; Presente
+  duration: Aug, 2014 &mdash; May, 2019
   summary: |
     Desarrollo de soluciones de software en diversos campos incluyendo (pero no
     limitado a):
