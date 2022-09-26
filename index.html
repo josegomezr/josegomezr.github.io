@@ -5,7 +5,7 @@ layout: homepage
 {% for post in site.posts %}
 {% if post.lang and post.lang != "en" %}{% continue %}{% endif %}
 <article>
-  <a href="{{ post.url }}">
+  <a href="{{ post.url | relative_url }}">
     <h1>{{ post.title }}</h1>
   </a>
   <small>{{ post.date | date: "%Y-%m-%d" }} - {{ post.tags | join: ', '}}</small>

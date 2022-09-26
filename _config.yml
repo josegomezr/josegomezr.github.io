@@ -4,6 +4,7 @@ description: "Le Résumé."
 
 # Build settings
 markdown: kramdown
+permalink: pretty
 
 sass:
   sass_dir: _sass

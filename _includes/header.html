@@ -1,6 +1,6 @@
 <header class="page-header">
   {% if site.resume_avatar == 'true' %}
-  <img src="/images/avatar.jpg" alt="my photo" class="avatar no-print" itemprop="image">
+  <img src="{{ '/images/avatar.jpg' | relative_url }}" alt="my photo" class="avatar no-print" itemprop="image">
   {% endif %}
 
   <a href="{{ '/' | relative_url }}">
