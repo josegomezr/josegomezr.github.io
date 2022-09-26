@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html>
   {% include head.html %}
-
-  
   <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}">
     <div class="wrapper">
-
       {% include header.html %}
-
-
       <div class="post">
-        <h1>{{ page.title }}</h1>
-        <small>{{ page.date | date: "%Y-%m-%d" }} - {{ page.tags | join: ', '}}</small>
         {{ content }}
       </div>
     </div>
