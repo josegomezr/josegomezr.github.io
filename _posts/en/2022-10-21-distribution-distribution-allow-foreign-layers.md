@@ -8,7 +8,7 @@ lang:
 
 TIL: distribution/distribution doesn't allow foreign layers by default. You must provide an allow/deny list in the configuration.
 
-```
+```yaml
 validation:
   manifests:
     urls:
@@ -57,10 +57,8 @@ perfect 🤦‍♂ ok, let's inspect the manifests then. (used [`reg`](https://g
 reg manifest rancher/kubelet-pause@sha256:6e1d6e94d15c837e1b0361b435cff67334ec71529a9ab6f1ba191a45e12e63fb
 INFO[0000] domain: docker.io                            
 INFO[0000] server address: https://registry-1.docker.io 
-{
-reg manifest rancher/kubelet-pause@sha256:6e1d6e94d15c837e1b0361b435cff67334ec71529a9ab6f1ba191a45e12e63fb
-INFO[0000] domain: docker.io                            
-INFO[0000] server address: https://registry-1.docker.io 
+```
+```json
 {
   "schemaVersion": 2,
   "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
@@ -109,8 +107,8 @@ INFO[0000] server address: https://registry-1.docker.io
 
 Aha! First layer there (`62239e9aa1a352a20b0d4969c2b508b8a18d10e799d4db72e6f24ccbb2c724d9`) corresponds with the error.
 
-```
-# ...
+```json
+{"ommitted": "for brevity"},
     {
       "mediaType": "application/vnd.docker.image.rootfs.foreign.diff.tar.gzip",
       "size": 101340070,
@@ -119,8 +117,8 @@ Aha! First layer there (`62239e9aa1a352a20b0d4969c2b508b8a18d10e799d4db72e6f24cc
         "https://mcr.microsoft.com/v2/windows/nanoserver/blobs/sha256:62239e9aa1a352a20b0d4969c2b508b8a18d10e799d4db72e6f24ccbb2c724d9"
       ]
     },
-# ...
-
+{"ommitted": "for brevity"}
+```
 I see a very valid URL there, and it's also reachable:
 
 ```
@@ -134,7 +132,7 @@ access-control-expose-headers: Link
 access-control-expose-headers: X-Ms-Correlation-Request-Id
 docker-content-digest: sha256:62239e9aa1a352a20b0d4969c2b508b8a18d10e799d4db72e6f24ccbb2c724d9
 docker-distribution-api-version: registry/2.0
-...
+# ...
 ```
 
 Let's look into `distribution/distribution` source code for `invalid URL on layer`, maybe that can shed a light?
@@ -143,7 +141,7 @@ After some digging, [here in registry/storage/schema2manifesthandler.go#L108](ht
 
 there's a loooong if clause that reads:
 
-```
+```golang
 // ...
 var pu *url.URL
 pu, err = url.Parse(u)
@@ -156,7 +154,7 @@ if err != nil || (pu.Scheme != "http" && pu.Scheme != "https") || pu.Fragment !=
 
 Let's break up styling to read that line better:
 
-```
+```golang
 if 
 err != nil // url couldn't be parsed
 || ( pu.Scheme != "http" && pu.Scheme != "https") // URL schema is not http/https
@@ -178,7 +176,7 @@ If any of those conditions matches, I get the error reported above. And analyzin
 
 In [registry/handlers/app.go#L232](https://github.com/distribution/distribution/blob/78b9c98c5c31c30d74f9acb7d96f98552f2cf78f/registry/handlers/app.go#L232)
 
-```
+```golang
 // ...
 if len(config.Validation.Manifests.URLs.Allow) == 0 && len(config.Validation.Manifests.URLs.Deny) == 0 {
   // If Allow and Deny are empty, allow nothing.
@@ -189,7 +187,7 @@ if len(config.Validation.Manifests.URLs.Allow) == 0 && len(config.Validation.Man
 
 There it is! A default allow nothing blocks all foreign layers from the container distribution service by default. The fix is simple, just configure an allow/deny list and you should be good to go. For our intent something along the lines of:
 
-```
+```yaml
 validation:
   manifests:
     urls:
