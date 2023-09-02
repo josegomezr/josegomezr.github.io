@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   {% include head.html %}
-  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}">
-    <div class="wrapper">
-      {% include header.html %}
-      <div class="post">
-        {{ content }}
+
+  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %} pt-2">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        {% include header.html %}
+        <div class="post col-lg-8">
+          {{ content }}
+        </div>
       </div>
     </div>
   </body>
-
 </html>

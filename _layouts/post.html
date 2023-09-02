@@ -2,19 +2,17 @@
 <html>
   {% include head.html %}
 
-  
-  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}">
-    <div class="wrapper">
-
-      {% include header.html %}
-
-
-      <div class="post">
-        <h1>{{ page.title }}</h1>
-        <small>{{ page.date | date: "%Y-%m-%d" }} - {{ page.tags | join: ', '}}</small>
-        {{ content }}
+  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %} pt-2">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        {% include header.html %}
+        <div class="post col-lg-8">
+          <h1>{{ page.title }}</h1>
+          <small>{{ page.date | date: "%Y-%m-%d" }} - {{ page.tags | join: ', '}}</small>
+          <hr class="hr-dotted">
+          {{ content }}
+        </div>
       </div>
     </div>
   </body>
-
 </html>
