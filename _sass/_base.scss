@@ -14,9 +14,22 @@ a {
   text-decoration: none;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  small {
+    font-size: .65em;
+  }
+}
+
+
 p code {
   background-color: rgba(120,120,120,0.1);
   padding: 1px;
+}
+
+blockquote {
+  background-color: rgba(120,120,120,0.1);
+  padding-left: 1rem;
+  border-left: 5px gray solid;
 }
 
 .post pre.highlight {
@@ -33,7 +46,7 @@ p code {
 }
 
 .post p img {
-  width: 100%;
+  max-width: 100%;
 }
 
 body{
