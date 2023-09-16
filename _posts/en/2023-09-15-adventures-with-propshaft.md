@@ -41,7 +41,7 @@ In the current day an asset pipeline usually has two sides:
 * A Javascript Transpiler: A piece of software that will transform isolated pieces
   of code into one, or many, big javascript entrypoint file to be served to the browser.
 
-  Note the use of "pieces of code" because JS can also be written in... something else! Like in the old days when people used to write CoffeeScript. Although now Typescript the go-to choice (depending on who you ask of course).
+  Note the use of "pieces of code" because JS can also be written in... something else! Like in the old days when people used to write CoffeeScript. Although now Typescript the go-to choice (depending on whom you ask of course).
 
   **The main goal is to have JS files that the browser can understand.**
 
@@ -83,7 +83,7 @@ Poppins-Medium-3a41c57c68c387a88540df1125eb7f01.ttf
 
 That's not quite intuitive to write in source code...
 
-To solve this issue, a manifest is usually employed. This assets manifest is in essence a dictionary: You look for a source name, and you get the digest-appended name.
+To solve this issue, a manifest is usually employed. This asset manifest is in essence a dictionary: You look for a source name, and you get the digest-appended name.
 
 ```
 [Human-readable-name] -> [Name-with-Digest]
@@ -102,7 +102,7 @@ Translating all these details to rails terms:
 JS & CSS compilation run with `yarn` outside of rails. They output things to `app/assets/builds`.
 
 Then [rails/propshaft][rails/propshaft] will process all foreign references and cross-match them with the assets it finds
-in the "load paths" (spoiler alert: `Rails.application.config.assets.paths`) and the result 
+in the "load paths" (spoiler alert: `Rails.application.config.assets.paths`), and the result 
 
 <div class="mermaid">
 flowchart LR
@@ -137,7 +137,7 @@ From the app backtrace we can see:
     stylesheet_link_tag "application", "data-turbo-track": "reload"
 ```
 
-`stylesheet_link_tag` must be looking up `application.css` somewhere and it doesn't find it.
+`stylesheet_link_tag` must be looking up `application.css` somewhere, and it doesn't find it.
 
 My buddy had cleared *all* possible customizations from the ruby code, it's all defaults in a desperate effort to make this work.
 
@@ -155,10 +155,10 @@ Rails::Engine.initializer "propshaft.append_assets_path", group: :all do |app|
 end
 ```
 
-The default paths are `vendor/assets`, `lib/assets`, `app/assets` and all it's descendants. And surely enough, we found the issue.
+The default paths are `vendor/assets`, `lib/assets`, `app/assets` and all its descendants. And surely enough, we found the issue.
 
 My buddy just tried to make it work like the Sprocket times, and made changes to
-the `package.json` that were obscure to us at the moment, but it looked like:
+the `package.json` that were obscure to us at the time, but it looked like:
 
 ```diff
 - "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
@@ -262,7 +262,7 @@ Was transpiled to:
 }
 ```
 
-It's clear that the `scss -> css` process works fenomenaly, variable was correcly interpolated. But the asset processor should've picked that location up and translated the `url` so it has the `[digest]` just before the extension.
+It's clear that the `scss -> css` process works fenomenaly, variable was correcly interpolated. But the asset processor should've picked that location up and translated the `url`, so it has the `[digest]` just before the extension.
 
 Furthermore, the logs also show:
 
@@ -318,7 +318,7 @@ jq < public/assets/.manifest.json | grep 'bootstrap-icons'
   "bootstrap-icons.woff2": "bootstrap-icons-a76c0fb01876e9f9abd10fe5c48d6da20c3bb09d.woff2",
 ```
 
-Aha! We're referring to them with a long path `bootstrap-icons/font/fonts/bootstrap-icons.woff2` but they're actually reported in the manifest as bare files: `bootstrap-icons.woff2`.
+Aha! We're referring to them with a long path `bootstrap-icons/font/fonts/bootstrap-icons.woff2`, but they're actually reported in the manifest as bare files: `bootstrap-icons.woff2`.
 
 This means all assets referred are relative to any directory specified in: `Rails.application.config.assets.paths`. Probably collisions are settled by order in the array (first path matched is returned).
 
@@ -339,7 +339,7 @@ jq < public/assets/.manifest.json | grep 'bootstrap-icons.css'
   "bootstrap-icons/font/bootstrap-icons.css": "bootstrap-icons/font/bootstrap-icons-bcd28b803d6d96d863de260eef795aa785c2566d.css",
 ```
 
-The asset pipeline captured pretty much anything inside `node_modules` directory and it descendants, including but not limited to these funny examples:
+The asset pipeline captured pretty much anything inside `node_modules` directory, and its descendants, including but not limited to these funny examples:
 
 ```
 jq < public/assets/.manifest.json | egrep -v '(css|js|svg)": '
@@ -378,7 +378,7 @@ jq < public/assets/.manifest.json | grep 'bootstrap-icons'
 ```
 
 It's... good enough tbh, not bare files, not quite as namespaced as I'd love to
-but we gotta work under the restraints.
+but we gotta work under with the constraints.
 
 The final step would be checking that [`propshaft`][rails/propshaft] actually
 replaced the wrong `url`.
