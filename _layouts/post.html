@@ -14,5 +14,9 @@
         </div>
       </div>
     </div>
+
+    {% if page.extras.mermaid %}
+    <script type="text/javascript" src="{{ 'js/mermaid_10.4.0_dist.min.js' | relative_url }}"></script>
+    {% endif%}
   </body>
 </html>

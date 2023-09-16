@@ -3,6 +3,8 @@ title: Adventures with rails/sprockets -> rails/propshaft
 layout: post
 tags: [blog, ruby-on-rails, propshaft, assets]
 categories: [blog, programming, rails]
+extras:
+  mermaid: yes
 lang: 
 ---
 
@@ -48,15 +50,18 @@ In the current day an asset pipeline usually has two sides:
 
   **The main goal is to have CSS files that the browser can understand.**
 
+A quick summary here:
 
-Translating this to rails terms:
+<div class="mermaid">
+flowchart LR
+    JS_SOURCES[JS Sources] -->|compiler| JS_COMPILED(Browser-ready JS)
+    SASS_SOURCES[SASS Sources] -->|compiler| SASS_COMPILED(Browser-Ready CSS)
+    JS_COMPILED --> ASSET_PIPELINE{Asset Processor}
+    SASS_COMPILED --> ASSET_PIPELINE
+    ASSET_PIPELINE -->|Asset Fingerprinting| MANIFEST[Assets Manifest]
+</div>
 
-* JS: `esbuild` collects all JS Module-style entrypoints into a ready-to-execute single-file `js` entrypoints.
-* CSS: `sass` collects all `sass`/`scss` files into ready-to-render `css` files.
-
-Both tasks run with `yarn` outside of the rails process, and output things to `app/assets/builds`.
-
-After the sources have been converted into understandable artifacts by the browser, then comes another pretty critical piece of the process: Assets Manifest.
+After the sources have been converted into understandable artifacts by the browser, then comes another pretty critical piece of the process we need to understand: The Assets Manifest.
 
 ### A tale of the before times
 
@@ -87,7 +92,27 @@ Poppins-Medium.ttf -> Poppins-Medium-3a41c57c68c387a88540df1125eb7f01.ttf
 
 Even though there are 3 versions of `Poppins-Medium.ttf`, only one is kept in the manifest, that we will consider as the appropriate one. How this is computed is a bit besides the point of this journey.
 
-But suffice to say that, 
+
+Translating all these details to rails terms:
+
+* JS: `esbuild` collects all JS Module-style entrypoints into a ready-to-execute single-file `js` entrypoints.
+* CSS: `sass` collects all `sass`/`scss` files into ready-to-render `css` files.
+* Asset Processor: [rails/propshaft][rails/propshaft].
+
+JS & CSS compilation run with `yarn` outside of rails. They output things to `app/assets/builds`.
+
+Then [rails/propshaft][rails/propshaft] will process all foreign references and cross-match them with the assets it finds
+in the "load paths" (spoiler alert: `Rails.application.config.assets.paths`) and the result 
+
+<div class="mermaid">
+flowchart LR
+    JS_SOURCES[JS Sources] -->|esbuild| JS_COMPILED(Browser-ready JS)
+    SASS_SOURCES[SASS Sources] -->|sass| SASS_COMPILED(Browser-Ready CSS)
+    JS_COMPILED --> ASSET_PIPELINE{Propshaft}
+    SASS_COMPILED --> ASSET_PIPELINE
+    ASSET_PIPELINE -->|Asset Fingerprinting| MANIFEST[Assets Manifest]
+</div>
+
 
 ---
 
