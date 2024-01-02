@@ -38,12 +38,14 @@ But as the world progresses, Front-end technologies get progressively complicate
 
 In the current day an asset pipeline usually has two sides:
 
-* A Javascript Transpiler: A piece of software that will transform isolated pieces
+* A Javascript Transpiler[^1]: A piece of software that will transform isolated pieces
   of code into one, or many, big javascript entrypoint file to be served to the browser.
 
   Note the use of "pieces of code" because JS can also be written in... something else! Like in the old days when people used to write CoffeeScript. Although now Typescript the go-to choice (depending on whom you ask of course).
 
   **The main goal is to have JS files that the browser can understand.**
+
+[^1]: Nobody likes the term _Transpiler_ anymore, to me: if the output of the compiler still can't be used by the end-result we're _transpiling_ and not _compiling_.
 
 * A CSS Processor: Much like the JS Transpiler, this converts sources into CSS
   files. A popular choice is to use `sass`. But as usual, it's a matter of taste.

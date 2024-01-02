@@ -20,7 +20,6 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
-
 p code {
   background-color: rgba(120,120,120,0.1);
   padding: 1px;
@@ -30,6 +29,15 @@ blockquote {
   background-color: rgba(120,120,120,0.1);
   padding-left: 1rem;
   border-left: 5px gray solid;
+}
+
+ul {
+  li {
+    p {
+      margin-bottom: 0;
+    }
+    margin-bottom: 1em;
+  }
 }
 
 .post pre.highlight {
