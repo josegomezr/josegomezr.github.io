@@ -1,5 +1,3 @@
-
-
 ---
 title: Is this how you use "strong parameters"?
 layout: post
@@ -14,7 +12,7 @@ Is this how you use `ActionController::Parameters` ?
 
 If this reaches anybody that can respond this, please reach me on ~~Twitter~~ X @ErCuatrista 
 
----
+<!--more-->
 
 I wanna validate in pure rails the following request body from a docker distribution notification:
 
