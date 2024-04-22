@@ -72,6 +72,7 @@ docker-compose -f docker-compose.yml run workload bin/puma -C config/puma.rb | g
 It seems to boot just fine but no matter how hard I hit the workload I can't
 seem to kill it... Maybe the memory limits aren't properly set?
 
+{% raw %}
 ```bash
 # i'm lazy, this gives me the container name I need
 # docker ps --filter name=container --format "{{ .Names }}"
@@ -82,6 +83,7 @@ docker inspect $(docker ps --filter name=container --format "{{ .Names }}") | gr
             "MemorySwap": 2147483648,
             "MemorySwappiness": null,
 ```
+{% endraw %}
 
 Hmm, that swap... it seems that swap is counted as usable memory, then we're not
 having really a `memory: 1G` limit, but rather `3G`...
@@ -97,6 +99,7 @@ docker-compose -f docker-compose.yml run workload bin/puma -C config/puma.rb | g
 
 In another shell then:
 
+{% raw %}
 ```bash
 docker container update --memory 1G --memory-swap 1025M $(docker ps --filter name=container --format "{{ .Names }}")
 
@@ -107,6 +110,7 @@ docker inspect $(docker ps --filter name=container --format "{{ .Names }}") | gr
             "MemorySwappiness": 0,
 
 ```
+{% endraw %}
 
 Aha! That certainly looks better :D
 
@@ -163,6 +167,7 @@ docker-compose -f docker-compose.yml run workload bin/puma -C config/puma.rb | g
 
 In another shell then:
 
+{% raw %}
 ```bash
 docker container update --memory 1G --memory-swap 1025M $(docker ps --filter name=container --format "{{ .Names }}")
 
@@ -177,6 +182,7 @@ docker exec -it $(docker ps --filter name=container --format "{{ .Names }}") bas
 for pid in $(ps aux | grep puma | grep -v grep | perl -lane 'print "@F[1]"'); do echo 1000 > /proc/$pid/oom_score_adj; done
 # Yes, perl is everywhere
 ```
+{% endraw %}
 
 And sure enough, I finally could do it! I saw puma restarting! 🎉
 ```
