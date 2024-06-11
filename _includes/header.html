@@ -1,13 +1,13 @@
-<header class="page-header">
+<header class="container-fluid">
   {% if site.resume_avatar == 'true' %}
-  <div class="row justify-content-center">
-    <div class="col-6">
+  <div class="grid">
+    <div>
       <img src="{{ '/images/avatar.jpg' | relative_url }}" alt="my photo" class="img-fluid no-print avatar" itemprop="image">
     </div>
   </div>
   {% endif %}
 
-  <div class="row justify-content-center">
+  <div class="grid">
     <div class="col-12 text-center">
       <a href="{{ '/' | relative_url }}">
         <h1 class="header-name" itemprop="name">{{ site.resume_name }}</h1>

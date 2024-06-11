@@ -2,7 +2,7 @@
 <html>
   {% include head.html %}
 
-  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %} pt-2">
+  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}" hx-boost="true">
     <div class="container-fluid">
       <div class="row justify-content-center">
         {% include header.html %}

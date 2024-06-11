@@ -2,16 +2,22 @@
 <html>
   {% include head.html %}
 
-  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %} pt-2">
+  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %} pt-2" hx-boost="true">
     <div class="container-fluid">
       <div class="row justify-content-center">
         {% include header.html %}
-        <div class="post col-lg-8">
-          <h1>{{ page.title | markdownify }}</h1>
-          <small>{{ page.date | date: "%Y-%m-%d" }} - {{ page.tags | join: ', '}}</small>
+        <article>
+          <hgroup>
+            <h1>
+              {{ page.title | markdownify }}
+            </h1>
+            <p>
+              📆: {{ page.date | date: "%Y-%m-%d" }} - 🏷: {{ page.tags | join: ', '}}
+            </p>
+          </hgroup>
           <hr class="hr-dotted">
           {{ content }}
-        </div>
+        </article>
       </div>
     </div>
 
