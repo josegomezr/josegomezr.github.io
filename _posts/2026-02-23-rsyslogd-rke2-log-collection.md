@@ -10,10 +10,10 @@ extras:
 
 # Da problem
 
-You're running your RKE2 cluster you installed in _the most secure way_ :tm:
+You're running your RKE2 cluster you installed in _the most secure way_ ™️
 from the quickstart guide:
 
-https://docs.rke2.io/install/quickstart
+[https://docs.rke2.io/install/quickstart](https://docs.rke2.io/install/quickstart)
 
 <small>_(for the sake of this post I'll assume you didn't `curl | sudo sh -` this
  situation and really installed it with an RPM or unpacking a tarball... tbh for
@@ -25,7 +25,7 @@ that moment the deployment decided to spawn a new pod and deleted your pod!
 You try getting your pod logs in
 `/var/log/pods/<namespace>_<pod-name>_<pod-uuid>/<container>/<restart-num>.log`
 (path structure not documented anywhere btw, so expect this to change in the
-future) aaaaaand it's not there anymore :clown:
+future) aaaaaand it's not there anymore 🤡
 
 All of those logs... lost!
 
@@ -167,6 +167,18 @@ action(
 
 Send messages to `target-host:514` via tcp.
 
+### Result
+
+```
+2026-02-23T16:31:05+00:00 kubenode1.cluster.corp rke2-pods: 2026-02-23T16:31:05.304868587Z stderr F {"level":"info","ts":"2026-02-23T16:31:05Z","logger":"goldmane-controller","msg":"Reconciling Goldmane","Request.Namespace":"","Request.Name":"periodic-5m0s-reconcile-event"}
+2026-02-23T16:31:05+00:00 kubenode2.cluster.corp rke2-pods: 2026-02-23T16:31:05.315608909Z stderr F {"level":"info","ts":"2026-02-23T16:31:05Z","logger":"controller_installation","msg":"Patching nftables mode","Request.Namespace":"","Request.Name":"periodic-5m0s-reconcile-event","nftablesMode":"Disabled"}
+2026-01-28T12:30:33+00:00 kubenode3.cluster.corp rke2-pods: 2026-01-28T12:30:33.021378066Z stderr F I0128 12:30:33.021337       1 shared_informer.go:357] "Caches are synced" controller="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2026-02-23T16:30:29+00:00 kubenode3.cluster.corp rke2-pods: 2026-02-23T16:30:29.692875215Z stderr F I0223 16:30:29.692758       1 cidrallocator.go:277] updated ClusterIP allocator for Service CIDR 10.43.0.0/16
+2026-02-23T16:33:58+00:00 kubenode2.cluster.corp rke2-pods: 2026-02-23T16:33:58.662208924Z stderr F {"level":"info","ts":"2026-02-23T16:33:58.662103Z","caller":"mvcc/kvstore_compaction.go:71","msg":"finished scheduled compaction","compact-revision":10936318,"took":"29.992945ms","hash":1435110330,"current-db-size-bytes":27926528,"current-db-size":"28 MB","current-db-size-in-use-bytes":13709312,"current-db-size-in-use":"14 MB"}
+```
+
+YAY! 🚀 we got logs!
+
 ## Not so fast...
 
 The easy way out keeps our SIEM needs happy, and our management happy... until
@@ -200,6 +212,15 @@ rather simple approach: embed the missing container information in the message.
 To put the missing information that lives in the file structure on the cluster
 node files directly in each message we'll need to transform the messages prior
 to sending.
+
+The pipeline would look something like:
+
+<pre class="mermaid">
+flowchart LR
+  LOGFILES[Log Files in /var/log/pod/*] -->|load| LOCAL_RSYSLOGD[Node-local RSYSLOGD]
+  LOCAL_RSYSLOGD[Node-local RSYSLOGD] -->|apply transformations| LOCAL_RSYSLOGD
+  LOCAL_RSYSLOGD[Node-local RSYSLOGD] -->|extract| RSYSLOG[Remote SIEM]
+</pre>
 
 ## Configuration
 
