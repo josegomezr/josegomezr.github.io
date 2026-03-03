@@ -153,9 +153,9 @@ And now feed the Certificate<sup>\*1</sup>: and Metadata XML.
 
 ![edit-auth-provider-form]({{ '/images/2026-03-03-edit-auth-provider-form.png' | relative_url }})
 
-<sup>\*1</sup>: Smol rant: The metadata XML has the certificates in it, why do I
+<sup>\*1: Smol rant: The metadata XML has the certificates in it, why do I
 need to re-add the certificate in a field, and further more in armor format, so
-not even copy-pasting would save me from it e.e
+not even copy-pasting would save me from it e.e</sup>
 
 Finally save and... the moment of truth! Go to your rancher cluster start page
 again and click on "Login with `$oldprovider`"!
@@ -163,6 +163,21 @@ again and click on "Login with `$oldprovider`"!
 If your new IdP's SAML Assertion matches exactly what was provided to Rancher
 before, you should have a fully working SSO integration without losing a single
 user 🚀🎉
+
+If it doesn't work right away, you're probably suffering from
+[rancher/rancher#53955][2]... It turns out that rancher would look into the
+assertion attribute field contents by matching the "Friendly Name"
+(Human description) instead of "Name" (Canonical identifier of the attribute).
+
+
+For completeness sake, in the [SAML 2.0 core specification][3], Section 2.7.3.1
+is explained:
+
+> FriendlyName [Optional]
+> 
+> A string that provides a more human-readable form of the attribute's name, which may be useful in cases in which the actual Name is complex or opaque, such as an OID or a UUID. This attribute's value MUST NOT be used as a basis for formally identifying SAML attributes.
+
+So... there's that. That _should_ be your only blocker... hopefully.
 
 ## A few things to note
 
@@ -179,4 +194,5 @@ user 🚀🎉
   to SAML, then this doesn't really work for you :C
 
 [0]: https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/authentication-permissions-and-global-configuration/authentication-config#disabling-an-auth-provider
-
+[1]: https://github.com/rancher/rancher/pull/53955
+[2]: https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf
