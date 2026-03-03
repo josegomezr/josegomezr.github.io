@@ -8,10 +8,14 @@ extras:
   mermaid: yes
 ---
 
+Imagine the scenario, your Kubernetes workloads have precious logs you wanna
+inspect and then someone does a rollout and all your pods are recreated...
+AAAAAAND it's gone...
+
 # Da problem
 
 You're running your RKE2 cluster you installed in _the most secure way_ ™️
-from the quickstart guide:
+from the quickstart guide
 
 [https://docs.rke2.io/install/quickstart](https://docs.rke2.io/install/quickstart)
 
