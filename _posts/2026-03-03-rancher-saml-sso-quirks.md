@@ -175,5 +175,8 @@ user 🚀🎉
   provider, not dramatic but make sure to document it out, you will get
   questions.
 
+* If you happen to have LDAP Auth provider configured and you want to change it
+  to SAML, then this doesn't really work for you :C
+
 [0]: https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/authentication-permissions-and-global-configuration/authentication-config#disabling-an-auth-provider
 
